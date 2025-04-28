@@ -86,7 +86,8 @@ body {
   height: 464px;
   position: relative;
 }
-.circle__wrapper .item.active, .circle__wrapper .item:hover {
+.circle__wrapper .item.active,
+.circle__wrapper .item:hover {
   --divCircle-size: 56px;
   width: var(--divCircle-size);
   height: var(--divCircle-size);
@@ -102,7 +103,8 @@ body {
   position: absolute;
   transition: 300ms, transform 500ms;
 }
-.circle__wrapper .item.active span, .circle__wrapper .item:hover span {
+.circle__wrapper .item.active span,
+.circle__wrapper .item:hover span {
   font-size: 20px;
 }
 .circle__wrapper .item.active h3 {
@@ -122,6 +124,7 @@ body {
   background-color: rgb(66, 86, 122);
   border-radius: 50%;
   position: absolute;
+  cursor: pointer;
   transition: 300ms, transform 500ms;
 }
 .circle__wrapper .item span {
@@ -204,6 +207,7 @@ body {
 }
 .swiperPeriods button:not(.swiper-button-disabled):hover {
   background: rgb(255, 255, 255);
+  cursor: pointer;
 }
 
 .swiper.swiperEvents {
@@ -213,6 +217,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 0 40px;
+  cursor: grabbing;
 }
 .swiper.swiperEvents .swiper-wrapper .swiper-slide {
   height: 135px;
@@ -235,6 +240,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .swiper.swiperEvents h2 {
   font-weight: 400;
@@ -262,6 +268,7 @@ body {
   position: absolute;
   display: flex;
   align-items: center;
+  cursor: default;
 }
 .button__wrapper:nth-child(2) {
   left: 0;
@@ -272,4 +279,123 @@ body {
   right: 0;
   z-index: 9999;
   justify-content: flex-start;
+}
+
+@media (orientation: portrait) and (max-width: 1280px) {
+  .slider {
+    border: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .slider__wrapper {
+    top: 163px;
+  }
+  .slider::before {
+    display: none;
+  }
+  .slider::after {
+    display: none;
+  }
+  .slider__title {
+    width: 123px;
+    height: 48px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 120%;
+    top: 59px;
+    left: 20px;
+  }
+  .slider__title::before {
+    display: none;
+  }
+  .slider .swiperPeriods {
+    height: 73px;
+    overflow: visible;
+  }
+  .slider .swiperPeriods .swiper-wrapper::after {
+    content: "";
+    display: flex;
+    width: 280px;
+    border-bottom: 1px solid rgb(199, 205, 217);
+    position: absolute;
+    inset: 130px 0 0 0;
+    margin: auto;
+  }
+  .slider .swiperPeriods .swiper-slide {
+    height: 73px;
+  }
+  .slider .swiperPeriods .swiper-slide span {
+    font-size: 56px;
+    font-weight: 700;
+  }
+  .slider .swiperPeriods .swiperPeriods__title {
+    color: rgb(66, 86, 122);
+    font-weight: 700;
+    margin-top: 50px;
+    margin-left: 30px;
+  }
+  .slider .swiperPeriods .swiperPeriods__control {
+    position: absolute;
+    top: 342px;
+    left: 20px;
+    margin: 0;
+    width: 58px;
+    height: 50px;
+    font-size: 14px;
+  }
+  .slider .swiperPeriods .swiperPeriods__control button {
+    width: 25px;
+    height: 25px;
+  }
+  .slider .swiperPeriods .swiperPeriods__control button svg {
+    width: 6px;
+    height: 8px;
+  }
+  .slider .swiperEvents {
+    height: 150px;
+    top: 50px;
+  }
+  .slider .swiperEvents .swiper-wrapper {
+    left: 20px;
+    position: absolute;
+  }
+  .slider .swiperEvents .swiper-wrapper .swiper-slide {
+    height: auto;
+    width: 100%;
+  }
+  .slider .swiperEvents h2 {
+    font-size: 16px;
+    width: 100%;
+  }
+  .slider .swiperEvents p {
+    font-size: 14px;
+    width: 100%;
+  }
+  .swiperPeriods__bullets {
+    height: -moz-max-content;
+    height: max-content;
+    width: 86px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    inset: 367px 0 0 0;
+    margin: auto;
+  }
+  .swiperPeriods__bullets .bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgb(66, 86, 122);
+    list-style-type: none;
+    opacity: 0.4;
+  }
+  .swiperPeriods__bullets .bullet.active {
+    opacity: 1;
+  }
+  .button__wrapper {
+    display: none;
+  }
+  .circle {
+    display: none;
+  }
 }/*# sourceMappingURL=Style.css.map */

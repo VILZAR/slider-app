@@ -120,7 +120,7 @@ function Slider() {
   };
 
   return (
-    <div className={isMobile() ? "slider mobile" : "slider"}>
+    <div className="slider">
       <h1 className="slider__title">Исторические даты</h1>
       <div className="circle">
         <div
@@ -172,6 +172,7 @@ function Slider() {
               </SwiperSlide>
             </>
           ))}
+          {isMobile() && <span className="swiperPeriods__title">{Object.keys(periods)[period]}</span>}
           <div className="swiperPeriods__control">
             <div className="swiperPeriods__control_pagination"></div>
             <button className="swiperPeriods__control_buttonPrev">
@@ -205,6 +206,20 @@ function Slider() {
               </svg>
             </button>
           </div>
+          {isMobile() && (
+            <ul className="swiperPeriods__bullets">
+              {Object.keys(periods).map((i, index) => (
+                <li
+                  key={i}
+                  className={index === period ? "bullet active" : "bullet"}
+                  onClick={() => {
+                    setPeriod(index);
+                    periodSwiper?.slideTo(index);
+                  }}
+                ></li>
+              ))}
+            </ul>
+          )}
         </Swiper>
         <Swiper
           modules={[Navigation]}
@@ -212,8 +227,8 @@ function Slider() {
             prevEl: ".eventsButtonPrev",
             nextEl: ".eventsButtonNext",
           }}
-          slidesPerView={3}
-          spaceBetween={80}
+          slidesPerView={isMobile() ? 1 : 3}
+          spaceBetween={isMobile() ? 25 : 80}
           onSwiper={(swiper: SwiperClass) => setEventsSwiper(swiper)}
           className="swiperEvents"
         >

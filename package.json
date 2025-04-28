@@ -1,7 +1,7 @@
 {
   "name": "slider-app",
   "version": "0.1.0",
-  "homepage": "https://VILZAR.github.io/slider-app/", 
+  "homepage": "https://VILZAR.github.io/slider-app/",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
