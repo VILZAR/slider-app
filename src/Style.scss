@@ -372,8 +372,10 @@ body {
       .swiperPeriods__title {
         color: rgb(66, 86, 122);
         font-weight: 700;
-        margin-top: 50px;
-        margin-left: 30px;
+        width: 280px;
+        position: absolute;
+        inset: 90px 0 0 0;
+        margin: auto;
       }
 
       .swiperPeriods__control {
