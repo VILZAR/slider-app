@@ -7,7 +7,7 @@ body {
   width: 1440px;
   height: 1080px;
   border: 1px solid rgba(66, 86, 122, 0.1);
-  margin: auto;
+  margin: 0 auto;
   position: relative;
   font-family: "PT Sans";
   background-color: rgba(244, 245, 249, 1);
@@ -178,7 +178,8 @@ body {
   top: 400px;
 }
 
-.swiperPeriods__bullets, .swiperPeriods__title {
+.swiperPeriods__bullets,
+.swiperPeriods__title {
   display: none;
 }
 
@@ -216,6 +217,7 @@ body {
     display: flex;
     justify-content: center;
     color: rgb(56, 119, 238);
+    user-select: none;
 
     & :last-child {
       color: rgb(239, 93, 168);
@@ -251,8 +253,14 @@ body {
 
   .swiper-wrapper .swiper-slide {
     height: 135px;
+    width: fit-content;
     max-width: 400px;
     min-width: 320px;
+    margin-right: 80px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   .swiper-button-disabled {
@@ -288,7 +296,6 @@ body {
   p {
     font-family: "PT Sans";
     height: 90px;
-    width: auto;
     font-weight: 400;
     font-size: 20px;
     letter-spacing: 0;
@@ -323,16 +330,13 @@ body {
   .slider {
     border: 0;
     width: 100%;
-    height: 100%;
+    height: 565px;
 
     &__wrapper {
-      top: 163px;
+      inset: 163px 0 0 0;
     }
 
-    &::before {
-      display: none;
-    }
-
+    &::before,
     &::after {
       display: none;
     }
@@ -352,24 +356,25 @@ body {
     }
 
     .swiperPeriods {
-      height: 73px;
+      height: max-content;
       overflow: visible;
+      position: relative;
 
       .swiper-wrapper::after {
         content: "";
         display: flex;
-        width: 280px;
+        width: calc(100% - 40px);
         border-bottom: 1px solid rgba(199, 205, 217, 1);
         position: absolute;
-        inset: 130px 0 0 0;
-        margin: auto;
+        inset: calc(3.5rem + 74px) 0 0 0;
+        margin: 0 auto;
       }
 
       .swiper-slide {
-        height: 73px;
+        height: auto;
 
         span {
-          font-size: 56px;
+          font-size: 3.5rem;
           font-weight: 700;
         }
       }
@@ -377,11 +382,34 @@ body {
       .swiperPeriods__title {
         color: rgb(66, 86, 122);
         font-weight: 700;
-        width: 280px;
+        width: calc(100% - 40px);
+        height: max-content;
         position: absolute;
-        inset: 90px 0 0 0;
-        margin: auto;
+        inset: calc(3.5rem + 30px) 0 0 0;
+        margin: 0 auto;
         display: flex;
+      }
+
+      .swiperPeriods__bullets {
+        height: 6px;
+        width: 86px;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        inset: 367px 0 0 0;
+        margin: 0 auto;
+
+        .bullet {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: rgba(66, 86, 122, 1);
+          opacity: 0.4;
+
+          &.active {
+            opacity: 1;
+          }
+        }
       }
 
       .swiperPeriods__control {
@@ -415,7 +443,14 @@ body {
 
         .swiper-slide {
           height: auto;
-          width: 100%;
+          width: fit-content;
+          margin-right: 20px;
+          max-width: 255px;
+          min-width: 155px;
+
+          &:last-child {
+            margin-right: 0;
+          }
         }
       }
 
@@ -426,38 +461,12 @@ body {
 
       p {
         font-size: 14px;
-        width: 100%;
+        width: fit-content;
       }
     }
   }
 
-  .swiperPeriods__bullets {
-    height: max-content;
-    width: 86px;
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    inset: 367px 0 0 0;
-    margin: auto;
-
-    .bullet {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: rgba(66, 86, 122, 1);
-      list-style-type: none;
-      opacity: 0.4;
-
-      &.active {
-        opacity: 1;
-      }
-    }
-  }
-
-  .button__wrapper {
-    display: none;
-  }
-
+  .button__wrapper,
   .circle {
     display: none;
   }

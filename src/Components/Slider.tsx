@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
 import { Navigation, Pagination, EffectFade } from "swiper/modules";
-import device from "current-device";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
@@ -72,14 +71,6 @@ const periods: IPeriods = {
       2022: "Новость заглушка",
     },
   },
-};
-
-const isMobile = () => {
-  if (device.mobile() && window.innerWidth < window.innerHeight) {
-    return true;
-  } else {
-    return false;
-  }
 };
 
 function Slider() {
@@ -208,18 +199,18 @@ function Slider() {
               </svg>
             </button>
           </div>
-          <ul className="swiperPeriods__bullets">
+          <div className="swiperPeriods__bullets">
             {Object.keys(periods).map((i, index) => (
-              <li
+              <span
                 key={i}
                 className={index === period ? "bullet active" : "bullet"}
                 onClick={() => {
                   setPeriod(index);
                   periodSwiper?.slideTo(index);
                 }}
-              ></li>
+              ></span>
             ))}
-          </ul>
+          </div>
         </Swiper>
         <Swiper
           modules={[Navigation]}
@@ -227,8 +218,7 @@ function Slider() {
             prevEl: ".eventsButtonPrev",
             nextEl: ".eventsButtonNext",
           }}
-          slidesPerView={isMobile() ? 1 : 3}
-          spaceBetween={isMobile() ? 25 : 80}
+          slidesPerView="auto"
           onSwiper={(swiper: SwiperClass) => setEventsSwiper(swiper)}
           className="swiperEvents"
         >
