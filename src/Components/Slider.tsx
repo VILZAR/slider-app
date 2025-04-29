@@ -172,7 +172,9 @@ function Slider() {
               </SwiperSlide>
             </>
           ))}
-          {isMobile() && <span className="swiperPeriods__title">{Object.keys(periods)[period]}</span>}
+          <span className="swiperPeriods__title">
+            {Object.keys(periods)[period]}
+          </span>
           <div className="swiperPeriods__control">
             <div className="swiperPeriods__control_pagination"></div>
             <button className="swiperPeriods__control_buttonPrev">
@@ -206,20 +208,18 @@ function Slider() {
               </svg>
             </button>
           </div>
-          {isMobile() && (
-            <ul className="swiperPeriods__bullets">
-              {Object.keys(periods).map((i, index) => (
-                <li
-                  key={i}
-                  className={index === period ? "bullet active" : "bullet"}
-                  onClick={() => {
-                    setPeriod(index);
-                    periodSwiper?.slideTo(index);
-                  }}
-                ></li>
-              ))}
-            </ul>
-          )}
+          <ul className="swiperPeriods__bullets">
+            {Object.keys(periods).map((i, index) => (
+              <li
+                key={i}
+                className={index === period ? "bullet active" : "bullet"}
+                onClick={() => {
+                  setPeriod(index);
+                  periodSwiper?.slideTo(index);
+                }}
+              ></li>
+            ))}
+          </ul>
         </Swiper>
         <Swiper
           modules={[Navigation]}

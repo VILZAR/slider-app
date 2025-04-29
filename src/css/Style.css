@@ -160,6 +160,10 @@ body {
   top: 400px;
 }
 
+.swiperPeriods__bullets, .swiperPeriods__title {
+  display: none;
+}
+
 .swiperPeriods__control {
   display: flex;
   flex-wrap: wrap;
@@ -335,6 +339,7 @@ body {
     position: absolute;
     inset: 90px 0 0 0;
     margin: auto;
+    display: flex;
   }
   .slider .swiperPeriods .swiperPeriods__control {
     position: absolute;

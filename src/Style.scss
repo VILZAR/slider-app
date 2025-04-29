@@ -177,6 +177,10 @@ body {
   top: 400px;
 }
 
+.swiperPeriods__bullets, .swiperPeriods__title {
+  display: none;
+}
+
 .swiperPeriods {
   &__control {
     display: flex;
@@ -376,6 +380,7 @@ body {
         position: absolute;
         inset: 90px 0 0 0;
         margin: auto;
+        display: flex;
       }
 
       .swiperPeriods__control {
